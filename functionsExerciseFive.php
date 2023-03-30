@@ -6,7 +6,7 @@ echo $_GET["blockId"], "\n";
 <form action="">
     <input type="text" name="name" placeholder="Имя" value="<?php if (isset($_GET['name'])) echo $_GET['name'] ?>"><br/>
     <input type="number" name="age" placeholder="Возраст" max="100" min="1" value="<?php if (isset($_GET['age'])) echo $_GET['age'] ?>"><br/>
-    <textarea name="desc" id="" cols="30" rows="10"><?php if (isset($_GET['desc'])) echo $_GET['desc'] ?></textarea><br/>
+    <textarea name="desc" id="" cols="30" rows="10" value=""><?php if (isset($_GET['desc'])) echo $_GET['desc'] ?></textarea><br/>
     <input type="submit"><br/>
 </form>
 
