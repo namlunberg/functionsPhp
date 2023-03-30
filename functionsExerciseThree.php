@@ -85,13 +85,6 @@ $today = date('z');
 $new = date('z', mktime(0, 0, 0, 12, 31));
 $toNewYear = ($new - $today) + 1;
 echo "До нового года осталось $toNewYear дней!", "\n";
-// if ($leap == 1) {
-//     $summ = 366 - $today;
-//     echo "До нового года осталось $summ дней!", "\n";
-// } else {
-//     $summ = 365 - $today;
-//     echo "До нового года осталось $summ дней!", "\n";
-// }
 
 $date = date_create('today');
 date_modify($date, '-100 day');
