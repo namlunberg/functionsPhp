@@ -82,14 +82,16 @@ echo "\n";
 //Доп задачи:
 echo 'Доп задачи', "\n";
 $today = date('z');
-$leap = date('L');
-if ($leap == 1) {
-    $summ = 366 - $today;
-    echo "До нового года осталось $summ дней!", "\n";
-} else {
-    $summ = 365 - $today;
-    echo "До нового года осталось $summ дней!", "\n";
-}
+$new = date('z', mktime(0, 0, 0, 12, 31));
+$toNewYear = ($new - $today) + 1;
+echo "До нового года осталось $toNewYear дней!", "\n";
+// if ($leap == 1) {
+//     $summ = 366 - $today;
+//     echo "До нового года осталось $summ дней!", "\n";
+// } else {
+//     $summ = 365 - $today;
+//     echo "До нового года осталось $summ дней!", "\n";
+// }
 
 $date = date_create('today');
 date_modify($date, '-100 day');
@@ -98,11 +100,12 @@ echo "100 дней назад был " . $week[$number] . "!", "\n";
 
 $year = 2009;
 $array = [];
-for ($i = 1; $i <= 12; $i++) {
-    for ($n = 1; $n <= 31; $n++){
-        $day = date('w', mktime(0, 0, 0, $i, $n, $year));
-        if (($day == 5) and ($n == 13)){
-            $result = date('z', mktime(0, 0, 0, $i, $n, $year));
+for ($month = 1; $month <= 12; $month++) {
+    $daysInMonth = date('t', mktime(0, 0, 0, $month));
+    for ($date = 1; $date <= $daysInMonth; $date++){
+        $day = date('w', mktime(0, 0, 0, $month, $date, $year));
+        if (($day == 5) and ($date == 13)){
+            $result = date('d-m-Y', mktime(0, 0, 0, $month, $date, $year));
             $array[] = $result;
         }
     } 
